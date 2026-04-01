@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image:
+  repository: hashicorp/http-echo
+  tag: "1.0"
+
+args:
+  - "-text=hello from backend"
+
+service:
+  type: ClusterIP
+  port: 5678
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+
+readinessProbe:
+  path: /wrong   # ⚠️ BUG HERE
+  port: 5678
+
+livenessProbe:
+  path: /
+  port: 5678
