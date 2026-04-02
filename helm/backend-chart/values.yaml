@@ -1,4 +1,4 @@
-replicaCount: 2
+ireplicaCount: 2
 
 image:
   repository: hashicorp/http-echo
@@ -17,7 +17,7 @@ resources:
     memory: "128Mi"
 
 readinessProbe:
-  path: /wrong   # ⚠️ BUG HERE
+  path: /
   port: 5678
 
 livenessProbe:
