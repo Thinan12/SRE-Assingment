@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sre-assignment
+  name: frontend-app
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Thinan12/SRE-Assingment.git
     targetRevision: HEAD
-    path: helm
+    path: helm/frontend-chart
   destination:
     server: https://kubernetes.default.svc
     namespace: default
