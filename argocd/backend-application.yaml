@@ -5,13 +5,17 @@ metadata:
   namespace: argocd
 spec:
   project: default
+
   source:
     repoURL: https://github.com/Thinan12/SRE-Assingment.git
     targetRevision: HEAD
     path: helm/backend-chart
+    helm: {}   # 🔥 VERY IMPORTANT (this tells Argo CD it's a Helm chart)
+
   destination:
     server: https://kubernetes.default.svc
     namespace: default
+
   syncPolicy:
     automated:
       prune: true
